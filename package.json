@@ -1,0 +1,31 @@
+{
+  "name": "drip-cli",
+  "version": "1.0.0",
+  "description": "CLI for Drip UI",
+  "main": "./bin/index.js",
+  "bin": {
+    "drip": "./bin/index.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/khazifire/DripUI/drip-cli"
+  },
+  "keywords": [
+    "Drip",
+    "CLI",
+    "drip"
+  ],
+  "author": "Teslim Balogun",
+  "license": "MIT",
+  "dependencies": {
+    "yargs": "^17.6.0"
+  },
+  "devDependencies": {
+    "@types/inquirer": "^9.0.2",
+    "@types/node": "^18.11.7",
+    "typescript": "^4.8.4"
+  }
+}
