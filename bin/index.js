@@ -1,14 +1,26 @@
 #! /usr/bin/env node
 
-console.log('My first CLI');
+// |||| PATHS ||||
+
+const path = `${process.cwd()}`;
+console.log(path);
+checkDir();
+
+const dripPath = 'components';
+const layoutPath = 'components/layout';
+const otherPath = 'components/other';
+const testString = ' "My new component" ';
+
+console.log(
+  `
+  Welcome to the interactive Drip CLI.
+  This CLI allows you to quickly create and modify components with ease
+  `
+);
+
 const fs = require('fs');
 const inquirer = require('inquirer');
 const { choices } = require('yargs');
-const path = process.cwd();
-const dripPath = '/components/drip';
-const layoutPath = '/components/layout';
-const otherPath = '/components/other';
-let testString = 'My new component ';
 
 inquirer
   .prompt([
@@ -302,3 +314,10 @@ inquirer
     //     console.log(error.message);
     // }
   });
+function checkDir() {
+  if (!path.endsWith('CLI')) {
+    throw new Error(
+      'This command is not available when running the drip CLI outside the Drip-UI workspace.'
+    );
+  }
+}
