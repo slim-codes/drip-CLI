@@ -6,7 +6,7 @@ const path = `${process.cwd()}`;
 console.log(path);
 checkDir();
 
-const dripPath = 'components';
+const dripPath = 'components/drip';
 const layoutPath = 'components/layout';
 const otherPath = 'components/other';
 const testString = ' "My new component" ';
@@ -166,11 +166,13 @@ inquirer
                 try {
                   // first check if the directory exists
                   if (
-                    !fs.existsSync(`./${answers.newComponentGroup}`, {
+                    !fs.existsSync(`${path}/${dripPath}/${answers.newComponentGroup}`, {
                       recursive: true,
                     })
                   ) {
-                    fs.mkdirSync(`${path}/${dripPath}/${answers.newComponentGroup}`);
+                    fs.mkdirSync(`${path}/${dripPath}/${answers.newComponentGroup}`, {
+                      recursive: true,
+                    });
                     console.log(`${answers.newComponentGroup} has been created in components/drip`);
                   } else {
                     console.log('Directory already exists');
@@ -269,16 +271,22 @@ inquirer
                 try {
                   // first check if the directory exists
                   if (
-                    !fs.existsSync(`./${answers.newComponentGroup}`, {
+                    !fs.existsSync(`${path}/${otherPath}/${answers.newComponentGroup}`, {
                       recursive: true,
                     })
                   ) {
-                    fs.mkdirSync(`${path}/${otherPath}/${answers.newComponentGroup}`);
+                    fs.mkdirSync(`${path}/${otherPath}/${answers.newComponentGroup}`, {
+                      recursive: true,
+                    });
                     console.log(
                       `${answers.newComponentGroup} has been created in components/other`
                     );
                   } else {
-                    console.log('Directory already exists');
+                    console.log(
+                      `
+  Directory already exists!
+  `
+                    );
                   }
                 } catch (error) {
                   console.log(error.message);
