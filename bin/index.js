@@ -1,26 +1,64 @@
 #! /usr/bin/env node
 
 // |||| PATHS ||||
-
 const path = `${process.cwd()}`;
-console.log(path);
-checkDir();
 
 const dripPath = 'components/drip';
 const layoutPath = 'components/layout';
 const otherPath = 'components/other';
 const testString = ' "My new component" ';
 
+// |||| COLORS ||||
+const colors = require('ansi-colors');
+
+colors.theme({
+  danger: colors.red,
+  dark: colors.dim.gray,
+  disabled: colors.gray,
+  em: colors.italic,
+  heading: colors.bold.underline,
+  info: colors.cyan,
+  muted: colors.dim,
+  primary: colors.blue,
+  strong: colors.bold,
+  success: colors.green,
+  underline: colors.underline,
+  warning: colors.yellow,
+});
+
+/*
+ *@summary Throws an error that depends on where the user called the drip command from.
+ */
+checkPath = () => {
+  if (!path.endsWith('CLI')) {
+    throw new Error(
+      `Error: This command is not available when running the drip CLI outside the DripUI workspace.`
+    );
+  }
+};
+
+function commandPathError() {
+  try {
+    checkPath();
+  } catch (err) {
+    console.error(`${colors.danger.strong(err.message)}`);
+    process.exit();
+  }
+}
+commandPathError();
+
+//  |||| PACKAGES ||||
+const fs = require('fs');
+const inquirer = require('inquirer');
+// const { choices, command } = require('yargs');
+
+// |||| ENTRY POINT ||||
 console.log(
   `
   Welcome to the interactive Drip CLI.
   This CLI allows you to quickly create and modify components with ease
   `
 );
-
-const fs = require('fs');
-const inquirer = require('inquirer');
-const { choices } = require('yargs');
 
 inquirer
   .prompt([
@@ -322,10 +360,3 @@ inquirer
     //     console.log(error.message);
     // }
   });
-function checkDir() {
-  if (!path.endsWith('CLI')) {
-    throw new Error(
-      'This command is not available when running the drip CLI outside the Drip-UI workspace.'
-    );
-  }
-}
