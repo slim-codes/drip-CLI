@@ -2,10 +2,11 @@
   "name": "drip-cli",
   "version": "1.0.0",
   "description": "CLI for Drip UI",
-  "main": "./bin/index.js",
+  "exports": "./bin/index.js",
   "bin": {
     "drip": "./bin/index.js"
   },
+  "engines": {"node": ">=14.16"},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

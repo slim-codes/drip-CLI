@@ -9,7 +9,7 @@ const otherPath = 'components/other';
 const testString = ' "My new component" ';
 
 // |||| COLORS ||||
-const colors = require('ansi-colors');
+import colors from 'ansi-colors';
 
 colors.theme({
   danger: colors.red,
@@ -29,7 +29,7 @@ colors.theme({
 /*
  *@summary Throws an error that depends on where the user called the drip command from.
  */
-checkPath = () => {
+const checkPath = () => {
   if (!path.endsWith('CLI')) {
     throw new Error(
       `Error: This command is not available when running the drip CLI outside the DripUI workspace.`
@@ -48,8 +48,8 @@ function commandPathError() {
 commandPathError();
 
 //  |||| PACKAGES ||||
-const fs = require('fs');
-const inquirer = require('inquirer');
+import fs from 'fs';
+import inquirer from 'inquirer';
 // const { choices, command } = require('yargs');
 
 // |||| ENTRY POINT ||||
