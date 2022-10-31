@@ -69,7 +69,7 @@ inquirer
       choices: ['drip', 'layout', 'other'],
     },
   ])
-  // create directory
+  // create components
   .then((answers) => {
     if (answers.scope === 'drip') {
       inquirer
@@ -332,31 +332,5 @@ inquirer
               });
           }
         });
-
-      // inquirer
-      //     .prompt([
-      //         {
-      //             type: 'input',
-      //             name: 'componentName',
-      //             message: 'Enter the name of your layout component in camelCase (e.g. navigationBar.js)',
-
-      //         }
-      //     ])
-      //     .then((answers) => {
-      //         console.log(`${answers.componentName}.js`);
-      //         fs.writeFileSync(`${path}/${otherPath}/components/other/${answers.componentName}.js`, testString + "\n");
-      //         console.log(`Successfully created ${answers.componentName} header in components/footer/`);
-      //     })
     }
-    // try {
-    //     // first check if the directory exists
-    //     if (!fs.existsSync(`./${answers.component}`, {recursive: true})) {
-    //         fs.mkdirSync(`./${answers.component}`);
-    //         console.log( `${answers.component} has been created in components/`);
-    //     } else {
-    //         console.log('Directory already exists');
-    //     }
-    // } catch (error) {
-    //     console.log(error.message);
-    // }
   });
