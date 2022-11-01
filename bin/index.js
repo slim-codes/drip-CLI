@@ -2,7 +2,6 @@
 
 // |||| PATHS ||||
 const path = `${process.cwd()}`;
-
 const dripPath = 'components/drip';
 const layoutPath = 'components/layout';
 const otherPath = 'components/other';
@@ -32,7 +31,7 @@ colors.theme({
 const checkPath = () => {
   if (!path.endsWith('CLI')) {
     throw new Error(
-      `Error: This command is not available when running the drip CLI outside the DripUI workspace.`
+      ` Error: This command is not available when running the drip CLI outside the DripUI workspace.`
     );
   }
 };
