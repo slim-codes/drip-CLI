@@ -1,12 +1,14 @@
 {
   "name": "drip-cli",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Quickly create and modify components for DripUI through the CLI",
   "exports": "./bin/index.js",
   "bin": {
     "drip": "./bin/index.js"
   },
-  "engines": {"node": ">=14.16"},
+  "engines": {
+    "node": ">=14.16"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
